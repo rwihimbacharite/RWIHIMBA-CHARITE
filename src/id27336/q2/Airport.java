@@ -7,7 +7,8 @@ public class Airport extends Entity {
     
     public Airport(int id, Date createdDate, Date updatedDate, String airportName, String code, String location) {
         super(id, createdDate, updatedDate);
-        if (code != null && (code.length() != 3 || !code.equals(code.toUpperCase()))) throw new IllegalArgumentException("Code must be 3 uppercase letters");
+        if (airportName != null && airportName.matches(".*\\d.*")) throw new IllegalArgumentException("Airport name cannot contain numbers");
+        if (code != null && (code.length() != 3 || !code.matches("[A-Z]{3}"))) throw new IllegalArgumentException("Code must be 3 uppercase letters");
         this.airportName = airportName; this.code = code; this.location = location;
     }
     

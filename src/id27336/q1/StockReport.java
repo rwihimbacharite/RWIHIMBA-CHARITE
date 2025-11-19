@@ -12,7 +12,7 @@ public final class StockReport extends Inventory {
     }
     
     public String generateReport() {
-        return "27336 - Stock Report: Total Items: " + getTotalItems() + ", Stock Value: $" + getStockValue() + ", Sales: " + getSoldQuantity() + " units";
+        return "27336 Stock Report: Total Items: " + getTotalItems() + ", Stock Value: $" + getStockValue() + ", Sales: " + getSoldQuantity() + " units";
     }
     
     public Date getReportDate() { return reportDate; }

@@ -9,6 +9,7 @@ public class Taxpayer extends TaxCategory {
         super(id, createdDate, updatedDate, authorityName, region, email, categoryName, rate, code);
         if (tin != null && (tin.length() != 9 || !tin.matches("\\d{9}"))) throw new TaxDataException("TIN must be exactly 9 digits");
         if (taxpayerName == null || taxpayerName.trim().isEmpty()) throw new TaxDataException("Taxpayer name cannot be empty");
+        if (taxpayerName != null && taxpayerName.matches(".*\\d.*")) throw new TaxDataException("Taxpayer name cannot contain numbers");
         if (address == null || address.trim().isEmpty()) throw new TaxDataException("Address cannot be empty");
         this.tin = tin; this.taxpayerName = taxpayerName; this.address = address;
     }

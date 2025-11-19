@@ -7,7 +7,8 @@ public class Department extends Institution {
     
     public Department(int id, Date createdDate, Date updatedDate, String institutionName, String code, String address, String departmentName, String departmentHead) {
         super(id, createdDate, updatedDate, institutionName, code, address);
-        if (departmentName == null || departmentName.isEmpty()) throw new IllegalArgumentException("Department name cannot be empty");
+        if (departmentName == null || departmentName.trim().isEmpty()) throw new IllegalArgumentException("Department name cannot be empty");
+        if (departmentHead == null || departmentHead.trim().isEmpty()) throw new IllegalArgumentException("Department head cannot be empty");
         this.departmentName = departmentName; this.departmentHead = departmentHead;
     }
     

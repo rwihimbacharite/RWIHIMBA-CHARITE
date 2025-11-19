@@ -11,6 +11,7 @@ public class Category extends Warehouse {
                     String categoryName, String categoryCode) {
 
         super(id, createdDate, updatedDate, warehouseName, location, contactNumber);
+        if (categoryName != null && categoryName.matches(".*\\d.*")) throw new IllegalArgumentException("Category name cannot contain numbers");
         if (categoryCode == null || categoryCode.length() < 3 ||
                 !categoryCode.matches("[a-zA-Z0-9]+")) {
             throw new IllegalArgumentException("Category code must be alphanumeric and >= 3 characters");

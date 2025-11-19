@@ -7,7 +7,7 @@ public class Warehouse extends Entity {
     
     public Warehouse(int id, Date createdDate, Date updatedDate, String warehouseName, String location, String contactNumber) {
         super(id, createdDate, updatedDate);
-        if (contactNumber != null && contactNumber.length() != 10) throw new IllegalArgumentException("Phone must be 10 digits");
+        if (contactNumber != null && !contactNumber.matches("\\d{10}")) throw new IllegalArgumentException("Phone must be 10 digits");
         this.warehouseName = warehouseName; this.location = location; this.contactNumber = contactNumber;
     }
     

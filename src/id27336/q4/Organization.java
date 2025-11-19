@@ -7,6 +7,7 @@ public class Organization extends Entity {
     
     public Organization(int id, Date createdDate, Date updatedDate, String orgName, String address, String contactEmail) {
         super(id, createdDate, updatedDate);
+        if (orgName != null && orgName.matches(".*\\d.*")) throw new IllegalArgumentException("Organization name cannot contain numbers");
         if (contactEmail != null && !contactEmail.contains("@")) throw new IllegalArgumentException("Invalid email");
         this.orgName = orgName; this.address = address; this.contactEmail = contactEmail;
     }

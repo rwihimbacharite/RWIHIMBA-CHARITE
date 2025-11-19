@@ -7,6 +7,7 @@ public class Institution extends Entity {
     
     public Institution(int id, Date createdDate, Date updatedDate, String institutionName, String code, String address) {
         super(id, createdDate, updatedDate);
+        if (institutionName != null && institutionName.matches(".*\\d.*")) throw new IllegalArgumentException("Institution name cannot contain numbers");
         if (code != null && code.length() < 3) throw new IllegalArgumentException("Code must be >= 3 chars");
         this.institutionName = institutionName; this.code = code; this.address = address;
     }

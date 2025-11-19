@@ -10,6 +10,7 @@ public class Employee extends Department {
     
     public Employee(int id, Date createdDate, Date updatedDate, String orgName, String orgCode, String rssbNumber, String contactEmail, String deptName, String deptCode, String managerName, int employeeID, String fullName, String position, double baseSalary, boolean rssbRegistered) {
         super(id, createdDate, updatedDate, orgName, orgCode, rssbNumber, contactEmail, deptName, deptCode, managerName);
+        if (fullName != null && fullName.matches(".*\\d.*")) throw new IllegalArgumentException("Full name cannot contain numbers");
         if (employeeID < 1000) throw new IllegalArgumentException("Employee ID must be >= 1000");
         if (baseSalary <= 0) throw new IllegalArgumentException("Base salary must be > 0");
         this.employeeID = employeeID; this.fullName = fullName; this.position = position; this.baseSalary = baseSalary; this.rssbRegistered = rssbRegistered;

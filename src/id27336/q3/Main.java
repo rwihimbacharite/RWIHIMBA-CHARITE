@@ -24,8 +24,14 @@ public class Main {
             System.out.println("27336 Receipt: " + record.getReceiptNo());
             
         } catch (TaxDataException e) {
-            System.out.println("27336 Tax Error: " + e.getMessage());
+            System.out.println("VALIDATION ERROR: " + e.getMessage());
+            System.out.println("Tax processing terminated due to validation failure.");
+            return;
+        } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
+            return;
+        } finally {
+            sc.close();
         }
-        sc.close();
     }
 }

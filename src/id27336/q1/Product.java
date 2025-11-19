@@ -9,6 +9,7 @@ public class Product extends Supplier {
     
     public Product(int id, Date createdDate, Date updatedDate, String warehouseName, String location, String contactNumber, String categoryName, String categoryCode, String supplierName, String supplierEmail, String supplierPhone, String productName, double unitPrice, int stockLimit) {
         super(id, createdDate, updatedDate, warehouseName, location, contactNumber, categoryName, categoryCode, supplierName, supplierEmail, supplierPhone);
+        if (productName != null && productName.matches(".*\\d.*")) throw new IllegalArgumentException("Product name cannot contain numbers");
         if (unitPrice <= 0) throw new IllegalArgumentException("Unit price must be > 0");
         if (stockLimit < 0) throw new IllegalArgumentException("Stock limit must be >= 0");
         this.productName = productName; this.unitPrice = unitPrice; this.stockLimit = stockLimit;

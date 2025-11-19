@@ -7,6 +7,7 @@ public class TaxAuthority extends Entity {
     
     public TaxAuthority(int id, Date createdDate, Date updatedDate, String authorityName, String region, String email) throws TaxDataException {
         super(id, createdDate, updatedDate);
+        if (authorityName != null && authorityName.matches(".*\\d.*")) throw new TaxDataException("Authority name cannot contain numbers");
         if (email != null && !email.contains("@")) throw new TaxDataException("Invalid email");
         this.authorityName = authorityName; this.region = region; this.email = email;
     }
