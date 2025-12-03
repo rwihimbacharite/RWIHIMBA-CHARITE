@@ -6,9 +6,12 @@ public class Entity {
     private int id;
     private Date createdDate, updatedDate;
     
-    public Entity(int id, Date createdDate, Date updatedDate) throws TaxDataException {
-        if (id <= 0) throw new TaxDataException("ID must be > 0");
-        this.id = id; this.createdDate = createdDate; this.updatedDate = updatedDate;
+    public Entity(int id, Date createdDate, Date updatedDate) {
+        if (id > 0) {
+            this.id = id; this.createdDate = createdDate; this.updatedDate = updatedDate;
+        } else {
+            System.out.println("ERROR: ID must be > 0");
+        }
     }
     
     public int getId() { return id; }

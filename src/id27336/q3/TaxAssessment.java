@@ -6,10 +6,14 @@ public class TaxAssessment extends TaxDeclaration {
     private Date assessmentDate;
     private double assessedTax;
     
-    public TaxAssessment(int id, Date createdDate, Date updatedDate, String authorityName, String region, String email, String categoryName, double rate, String code, String tin, String taxpayerName, String address, String employerName, String employerTIN, String contact, String employeeName, double salary, String employeeTIN, String declarationMonth, double totalIncome, Date assessmentDate, double assessedTax) throws TaxDataException {
+    public TaxAssessment(int id, Date createdDate, Date updatedDate, String authorityName, String region, String email, String categoryName, double rate, String code, String tin, String taxpayerName, String address, String employerName, String employerTIN, String contact, String employeeName, double salary, String employeeTIN, String declarationMonth, double totalIncome, Date assessmentDate, double assessedTax) {
         super(id, createdDate, updatedDate, authorityName, region, email, categoryName, rate, code, tin, taxpayerName, address, employerName, employerTIN, contact, employeeName, salary, employeeTIN, declarationMonth, totalIncome);
-        if (assessedTax < 0) throw new TaxDataException("Tax must be >= 0");
-        this.assessmentDate = assessmentDate; this.assessedTax = assessedTax;
+        if (assessedTax >= 0) {
+            this.assessedTax = assessedTax;
+        } else {
+            System.out.println("ERROR: Tax must be >= 0");
+        }
+        this.assessmentDate = assessmentDate;
     }
     
     public double getAssessedTax() { return assessedTax; }
